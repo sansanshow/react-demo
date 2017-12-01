@@ -10,11 +10,18 @@ import {Route, BrowserRouter as Router} from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
 
 // ReactDOM.render(<App name={'Jack'}/>, document.getElementById('root'));
+class Index extends React.Component {
+    render () {
+        return (
+            <App name={'Jack'}/>
+        );
+    }
+}
 ReactDOM.render((
     <Router>
-        <Route path="/" component={App}>
-            <Route path="about" component={About} />
-            <Route path="inbox" component={Inbox} />
+        <Route path="/" component={Index}>
+            {/* <Route path="about" component={About} />
+            <Route path="inbox" component={Inbox} /> */}
         </Route>
     </Router>
 ), document.getElementById('root'));

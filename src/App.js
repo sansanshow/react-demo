@@ -4,6 +4,7 @@ import './App.css';
 import Checkbox from './components/checkbox.jsx';
 import About from './components/about';
 import Inbox from './components/inbox';
+import Calculator from './views/Calculator';
 import { Route, Link, Switch } from 'react-router-dom';
 
 class App extends Component {
@@ -51,6 +52,7 @@ class App extends Component {
                         }}>Aboutsss</Link>
                     </li>
                     <li><Link to="/inbox">Inboxsss</Link></li>
+                    <li><Link to="/calculator">calculator</Link></li>
                 </ul>
                 <hr/>
                 <div>
@@ -58,6 +60,7 @@ class App extends Component {
                         <Route path="/about/:info" component={About} />
                         {/*<Route path="/about/:info" render={() => <About/>} />*/}
                         <Route path="/inbox" component={Inbox} />
+                        <Route path="/calculator" component={Calculator} />
                     </Switch>
                 </div>
                 {/*{this.props.children}*/}
