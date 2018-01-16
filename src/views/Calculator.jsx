@@ -17,6 +17,12 @@ function tryConvert(temperature, convert){
     const rounded = Math.round(output * 1000) / 1000;
     return rounded.toString();
 }
+function BoilingVerdict(props) {
+    if (props.celsius >= 100) {
+      return <p>The water would boil.</p>;
+    }
+    return <p>The water would not boil.</p>;
+  }
 /**
  * 摄氏度转换
  */
@@ -32,27 +38,27 @@ class Calculator extends React.Component {
      * 在react组件加载完之前立即执行，此时还不能访问到真实的dom结构
      */
     componentWillMount() {
-        console.log('Calculator--componentWillMount');
+        // console.log('Calculator--componentWillMount');
     }
     /**
      * 
      */
     componentDidMount() {
-        console.log('Calculator--componentDidMount');
+        // console.log('Calculator--componentDidMount');
     }
     /**
      * 当挂载的组件接收到新的props时被调用
      * @param {*} newProps 
      */
     componentWillReceiveProps(newProps) {
-        console.log('Calculator--componentWillReceiveProps');
+        // console.log('Calculator--componentWillReceiveProps');
     }
     /**
      * 
      */
     shouldComponentUpdate(nextProps, nextState) {
-        console.log('Calculator--shouldComponentUpdate');
-        console.log(nextProps, nextState);
+        // console.log('Calculator--shouldComponentUpdate');
+        // console.log(nextProps, nextState);
         return true;
     }
 
@@ -70,8 +76,8 @@ class Calculator extends React.Component {
     render() {
         const scale = this.state.scale;
         const temperature = this.state.temperature;
-        const celsius = scale == 'f' ? tryConvert(temperature, toCelsius) : temperature;
-        const fahrenheit =  scale == 'c' ? tryConvert(temperature, toFahrenheit) : temperature;
+        const celsius = scale === 'f' ? tryConvert(temperature, toCelsius) : temperature;
+        const fahrenheit =  scale === 'c' ? tryConvert(temperature, toFahrenheit) : temperature;
         return (
             <div>
                 <TemperatureInput
@@ -84,6 +90,7 @@ class Calculator extends React.Component {
                     temperature={fahrenheit}
                     onTemperatureChange={this.handleFahrenheitChange}>
                 </TemperatureInput>
+                <BoilingVerdict celsius={celsius}></BoilingVerdict>
                 <input type="text" name="22" id="" defaultValue='12'/>
                 <input type="text" name="22" id="" value='12' onChange={this.testHandleChange}/>
             </div>

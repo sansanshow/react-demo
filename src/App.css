@@ -17,6 +17,18 @@
 .App-intro {
     font-size: large;
 }
+a {
+    flood-color: #000;
+    font-size: 16px;
+}
+a:link {color:#000;}
+a:visited {color:#000;}
+a:hover {color:#000;}
+a:active {color:#000;}
+.link {
+    flood-color: #000;
+    font-size: 16px;
+}
 
 @keyframes App-logo-spin {
     from {

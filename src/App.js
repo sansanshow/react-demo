@@ -5,12 +5,14 @@ import Checkbox from './components/checkbox.jsx';
 import About from './components/about';
 import Inbox from './components/inbox';
 import Calculator from './views/Calculator';
+import FuncComponent from './components/FuncComponent';
+import CommentApp from './views/CommentApp'
+
 import { Route, Link, Switch } from 'react-router-dom';
 
+
 class App extends Component {
-    // propTypes: {
-    //     title: PropTypes.string.isRequired // title必须是一个字符串，而且是必须的
-    // }
+    
     handleChange(info){
         console.log(info)
     }
@@ -29,13 +31,13 @@ class App extends Component {
         ];
         return (
             <div className="App">
-                <div className="App-header">
+                {/* <div className="App-header">
                     <img src={logo} className="App-logo" alt="logo"/>
                     <h2>Welcome to React,{this.props.name}</h2>
                 </div>
                 <p className="App-intro">
                     To get started, edit <code>src/App.js</code> and save to reload.
-                </p>
+                </p> */}
                 {
                     propsArray.map((v,i) => {
                         let chbox;
@@ -53,14 +55,17 @@ class App extends Component {
                     </li>
                     <li><Link to="/inbox">Inboxsss</Link></li>
                     <li><Link to="/calculator">calculator</Link></li>
+                    <li><Link to="/comment">CommentApp</Link></li>
+                    <li>没有Link的样式</li>
                 </ul>
+                <FuncComponent />
                 <hr/>
                 <div>
                     <Switch>
                         <Route path="/about/:info" component={About} />
-                        {/*<Route path="/about/:info" render={() => <About/>} />*/}
+                        <Route path="/about/:info" render={() => <About/>} />
                         <Route path="/inbox" component={Inbox} />
-                        <Route path="/calculator" component={Calculator} />
+                        <Route path="/comment" component={ CommentApp }/>
                     </Switch>
                 </div>
                 {/*{this.props.children}*/}

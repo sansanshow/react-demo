@@ -1,0 +1,31 @@
+.list-item{
+    border-bottom: 1px solid #666;
+    .comment-main {
+        display: flex;
+        padding: 10px;
+        span {
+            display: inline-block;
+            min-height: 40px;
+            &.name {
+                min-width: 100px;
+                color: red;
+                font-size: 20px;
+            }
+            &.main {
+                text-align: left;
+                flex: 1;
+            }
+            &.delete {
+                min-width: 100px;
+            }
+        }
+        
+    }
+    .pub-date {
+        text-align: right;
+        color: #666;
+        font-size: 16px;
+        width: 70%;
+        margin: 0 auto;
+    }
+}

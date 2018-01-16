@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import About from './components/about';
-import Inbox from './components/inbox';
+import RouteConfig from './components/RouteConfig';
+// import About from './components/about';
+// import Inbox from './components/inbox';
 // import { Router, Route } from 'react-router'
 import {Route, BrowserRouter as Router} from 'react-router-dom';
 
@@ -23,6 +24,8 @@ ReactDOM.render((
             {/* <Route path="about" component={About} />
             <Route path="inbox" component={Inbox} /> */}
         </Route>
+        {/* <Route path="/config" component={ RouteConfig }/> */}
     </Router>
+    // <RouteConfig />
 ), document.getElementById('root'));
 registerServiceWorker();

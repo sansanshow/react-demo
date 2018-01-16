@@ -13,7 +13,7 @@ class TemperatureInput extends Component {
      * 
      */
     componentWillReceiveProps(nextProps) {
-        console.log('TemperatureInput-', nextProps);
+        // console.log('TemperatureInput-', nextProps);
     }
     handleChange(e){
         var target = e.target;
@@ -21,7 +21,7 @@ class TemperatureInput extends Component {
         // this.setState({
         //     temperature: e.target.value
         // })
-        this.props.onTemperatureChange(e.target.value);
+        this.props.onTemperatureChange(target.value);
     }
     render(){
         const temperature = this.props.temperature;
