@@ -9,10 +9,10 @@ import '../../styles/components/comment/comment-list.less'
 
 class CommentList extends Component {
     static defaultProps = {
-        commentList: []
+        comments: []
     }
     static propTypes = {
-        commentList: PropTypes.array.isRequired
+        comments: PropTypes.array.isRequired
     }
     constructor(props) {
         super(props);
@@ -26,7 +26,7 @@ class CommentList extends Component {
         return (
             <div className="comment-list">
                 {
-                    this.props.commentList.map((item, index) => 
+                    this.props.comments.map((item, index) => 
                         <Comment comment={item} key={item.id} index={index} onDeleteComment={this.handleDeleteComment.bind(this)}/>
                     )
                 }

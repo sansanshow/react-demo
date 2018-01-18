@@ -8,25 +8,38 @@ class CommentInputContainer extends Component {
         comments: PropTypes.array, 
         onSubmit: PropTypes.func
     }
+    constructor(props) {
+        super(props);
+        this.state = {
+            uname: ''
+        }
+    }
 
     componentWillMount() {
-
         this.setState({
             uname: localStorage.getItem('uname') || ''
         })
     }
 
-    constructor() {
-        super();
+    handleSubmitComment(comment) {
+        if(!comment) return false;
+        if(!comment.uname) { alert('请输入用户名！'); return false; }
+        if(!comment.content) { alert('请输入内容！'); return false; }
+
+        if(this.props.onSubmit){
+            this.props.onSubmit(comment);
+        }
+
     }
 
-    handleSubmitComment() {
-
+    handleUnameInputBlur(uname) {
+        localStorage.setItem('uname', uname);
     }
+
     render() {
         let uname = this.state.uname;
         return (
-            <CommentInput uname={ uname } onSubmit={ this.handleSubmitComment.bind(this) }/>
+            <CommentInput uname={ uname } onUnameInputBlur={ this.handleUnameInputBlur.bind(this) } onSubmit={ this.handleSubmitComment.bind(this) }/>
         )
     }
 }

@@ -35,7 +35,16 @@ class CommentInput extends Component {
           uname: event.target.value
         })
     }
-    
+    /**
+     * 失去焦点保存用户名
+     */
+    handleUnameInputBlur(event) {
+        if(this.props.onUnameInputBlur) {
+            let uname = event.target.value;
+            this.props.onUnameInputBlur(uname);
+        }
+    }
+
     handleSubmit() {
         if(this.props.onSubmit) {
             let currDate = new Date().getTime();
@@ -53,13 +62,12 @@ class CommentInput extends Component {
     }
 
     render() {
-        console.log(this.props.uname);
         return (
             <div className='comment-form'>
                 <div className="form-line">
                     <span>用户名</span>
                     <div>
-                        <input value={ this.state.uname } type="text" onChange={ this.handleUnameChange.bind(this) }/>
+                        <input value={ this.state.uname } type="text" onBlur={ this.handleUnameInputBlur.bind(this) } onChange={ this.handleUnameChange.bind(this) }/>
                     </div>
                 </div>
                 <div className="form-line">

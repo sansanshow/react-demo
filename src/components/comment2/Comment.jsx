@@ -45,7 +45,7 @@ class Comment extends Component {
         return (
             <div className="list-item">
                 <div className="comment-main">
-                    <span className="name" styles={{ color: this.context.themeColor }}>{ this.props.comment.uname }:</span>
+                    <span className="name" style={{ color: this.context.themeColor }}>{ this.props.comment.uname }:</span>
                     <span className="main">
                         { this.props.comment.content }
                     </span>
