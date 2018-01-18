@@ -6,7 +6,8 @@ import About from './components/about';
 import Inbox from './components/inbox';
 import Calculator from './views/Calculator';
 import FuncComponent from './components/FuncComponent';
-import CommentApp from './views/CommentApp'
+import CommentApp from './views/CommentApp';
+import CommentAppNew from './container/comment/CommentApp';
 
 import { Route, Link, Switch } from 'react-router-dom';
 
@@ -56,6 +57,7 @@ class App extends Component {
                     <li><Link to="/inbox">Inboxsss</Link></li>
                     <li><Link to="/calculator">calculator</Link></li>
                     <li><Link to="/comment">CommentApp</Link></li>
+                    <li><Link to="/commentnew">CommentAppNew</Link></li>
                     <li>没有Link的样式</li>
                 </ul>
                 <FuncComponent />
@@ -66,6 +68,7 @@ class App extends Component {
                         <Route path="/about/:info" render={() => <About/>} />
                         <Route path="/inbox" component={Inbox} />
                         <Route path="/comment" component={ CommentApp }/>
+                        <Route path="/commentnew" component={ CommentAppNew }/>
                     </Switch>
                 </div>
                 {/*{this.props.children}*/}

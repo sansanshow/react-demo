@@ -2,6 +2,7 @@
  * 评论App实现
  */
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 
 import RHeader from '../components/RHeader';
 import Clock from '../components/Clock';
@@ -9,15 +10,27 @@ import CommentList from '../components/comment/CommentList';
 import CommentInput from '../components/comment/CommentInput';
 
 class CommentApp extends Component {
+    static childContextTypes = {
+        themeColor: PropTypes.string
+    }
     constructor(props) {
         super(props);
         // 取出默认数据
         let commentList = JSON.parse(localStorage.getItem('commentList')) || [];
         console.log(commentList[0]);
         this.state = {
+            themeColor: 'red',
             list: commentList,
             isHide: false
         }
+    }
+
+    componentWillMount() {
+        this.setState({ themeColor: 'red' })
+
+    }
+    getChildContext(){
+        return { themeColor: this.state.themeColor }
     }
 
     onSubmit(comment){

@@ -7,9 +7,6 @@ import PropTypes from 'prop-types';
 
 import '../../styles/components/comment/comment.less';
 class Comment extends Component {
-    static contextTypes = {
-        themeColor: PropTypes.string
-    }
 
     constructor(props) {
         super(props);
