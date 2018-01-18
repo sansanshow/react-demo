@@ -43,4 +43,5 @@ class CommentInputContainer extends Component {
         )
     }
 }
+
 export default CommentInputContainer;
